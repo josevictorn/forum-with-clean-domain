@@ -1,19 +1,19 @@
-import { UniqueEntityID } from "@/core/entities/unique-entity-id";
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
-import { Answer } from "../../enterprise/entities/answer";
+import { Answer } from '@/domain/forum/enterprise/entities/answer'
 
-import { AnswersRepository } from "../repositories/answers-repository";
+import { AnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 
 interface AnswerQuestionUseCaseRequest {
-  instructorId: string;
+  instructorId: string
 
-  questionId: string;
+  questionId: string
 
-  content: string;
+  content: string
 }
 
 interface AnswerQuestionUseCaseResponse {
-  answer: Answer;
+  answer: Answer
 }
 
 export class AnswerQuestionUseCase {
@@ -32,12 +32,13 @@ export class AnswerQuestionUseCase {
       authorId: new UniqueEntityID(instructorId),
 
       questionId: new UniqueEntityID(questionId),
-    });
+    })
 
-    await this.answerRepository.create(answer);
+    await this.answerRepository.create(answer)
 
     return {
       answer,
-    };
+    }
   }
 }
+

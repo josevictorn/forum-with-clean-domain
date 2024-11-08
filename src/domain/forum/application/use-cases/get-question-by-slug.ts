@@ -1,5 +1,5 @@
-import { Question } from '../../enterprise/entities/question'
-import { QuestionsRepository } from '../repositories/question-repository'
+import { Question } from '@/domain/forum/enterprise/entities/question'
+import { QuestionsRepository } from '@/domain/forum/application/repositories/questions-repository'
 
 interface GetQuestionBySlugUseCaseRequest {
   slug: string
