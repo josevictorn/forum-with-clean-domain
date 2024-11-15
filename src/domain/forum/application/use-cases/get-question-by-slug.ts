@@ -1,7 +1,7 @@
 import { Question } from '@/domain/forum/enterprise/entities/question'
-import { QuestionsRepository } from '@/domain/forum/application/repositories/questions-repository'
-import { Either, right } from '@/core/either'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { QuestionsRepository } from '../repositories/questions-repository'
+import { Either, left, right } from '@/core/either'
+import { ResourceNotFoundError } from '@/domain/forum/application/use-cases/errors/resource-not-found-error'
 
 interface GetQuestionBySlugUseCaseRequest {
   slug: string
@@ -23,7 +23,8 @@ export class GetQuestionBySlugUseCase {
     const question = await this.questionsRepository.findBySlug(slug)
 
     if (!question) {
-      throw new Error('Question not found.')
+      // return left(new ResourceNotFoundError())
+      throw new Error()
     }
 
     return right({
