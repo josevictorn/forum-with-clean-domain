@@ -1,4 +1,4 @@
-import { AggregateRoot } from '@/core/entities/aggregate'
+import { AggregateRoot } from '@/core/entities/aggregate-root'
 import { Slug } from './value-objects/slug'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
