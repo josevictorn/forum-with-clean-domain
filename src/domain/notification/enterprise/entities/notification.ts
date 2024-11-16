@@ -6,7 +6,7 @@ interface NotificationProps {
   recipientId: UniqueEntityID
   title: string
   content: string
-  readAt: Date
+  readAt?: Date
   createdAt: Date
 }
 
@@ -42,5 +42,7 @@ export class Notification extends Entity<NotificationProps> {
       },
       id,
     )
+
+    return notification
   }
 }
